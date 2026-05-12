@@ -18,7 +18,7 @@ function Account(props){
             </ul>
 
             {/** Simulador de posts */}
-            <SmallPost />
+            <SmallPost postImg={props.postImg} accountImg={account.img} accountName={accout.name}/>
 
             {props.actualAccount && <button>Editar</button>}
         </div>
