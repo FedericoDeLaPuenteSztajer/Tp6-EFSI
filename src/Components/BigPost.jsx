@@ -1,6 +1,6 @@
 //
 
-function Explore(){
+function BigPost(){
 
     return(
         <>
@@ -9,4 +9,4 @@ function Explore(){
     )
 }
 
-export default Explore;
+export default BigPost;

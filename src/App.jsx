@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
 import './App.css'
+import Header from './Components/Header.jsx'
 import Account from './Components/Account.jsx'
-import Explore from './Components/Explore.jsx'
+import Feed from './Components/Feed.jsx'
 
 function App() {
 
@@ -9,17 +10,14 @@ function App() {
 
   return (
     <>
-      <header>
-
-      </header>
-
+      <Header />
       <main>
         <section className="LeftBar">
           <Account />
         </section>
 
         <section className="RightBar">
-          <Explore />
+          <Feed />
         </section>
       </main>
     </>
