@@ -1,0 +1,12 @@
+main{
+    padding: 0%;
+    margin: 0%;
+}
+
+.LeftBar{
+    width: 20%;
+}
+
+.RightBar{
+    width: 80%;
+}
