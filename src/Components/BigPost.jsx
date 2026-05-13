@@ -16,7 +16,9 @@ function BigPost(props) {
                 <button>Comentar</button>
             </ul>
 
-            {/** Comentarios: ¿Cómo hacerlos? */}
+            <div>
+                <p>{props.comment}</p>
+            </div>
 
         </>
     )

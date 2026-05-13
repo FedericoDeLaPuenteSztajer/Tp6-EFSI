@@ -7,11 +7,14 @@ import Feed from './Components/Feed.jsx'
 function App() {
 
   const comments= ["Nuevo seguidor", "Yo literal", "primer comentario", "Una vez me paso", "Sófocles tenía razón", "Revivan la grase :v"];
+  const accountNames= ["Ainz Ooal Gown", "Albedo", "ShalltearBlodfallen", "MareBelloFiore", "AuraBelloFiore", "Cockytus", "Demiurge", "PandorasActor"]
 
-  //Math.floor(Math.random() * 11) --> Entre 0 y 1
+  //Random => Math.floor(Math.random() * 11) --> Entre 0 y 1
+
+  
 
   const GoHome = ()=>{
-    
+
   }
 
   return (
