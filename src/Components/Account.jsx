@@ -2,23 +2,23 @@ import SmallPost from './SmallPost.jsx'
 
 function Account(props) {
 
-    const accout = props.Account;
+    const account = props.Account;
 
     return (
         <>
             <div>
-                <h2>{accout.name}</h2>
+                <h2>{account.name}</h2>
                 <img src={account.img} />
-                <p>{accout.desc}</p>
+                <p>{account.desc}</p>
 
                 <ul>
-                    <li>Cantidad de Publicaciones: {accout.cantPosts}</li>
-                    <li>Cantidad de Seguidores: {accout.cantFollowers}</li>
-                    <li>Cantidad de Seguidos: {accout.cantFollows}</li>
+                    <li>Cantidad de Publicaciones: {account.cantPosts}</li>
+                    <li>Cantidad de Seguidores: {account.cantFollowers}</li>
+                    <li>Cantidad de Seguidos: {account.cantFollows}</li>
                 </ul>
 
                 {/** Simulador de posts */}
-                <SmallPost postImg={props.postImg} accountImg={account.img} accountName={accout.name} />
+                <SmallPost postImg={props.postImg} accountImg={account.img} accountName={account.name} />
 
                 {props.actualAccount && <button>Editar</button>}
             </div>

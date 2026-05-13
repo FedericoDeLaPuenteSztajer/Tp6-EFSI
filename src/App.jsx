@@ -6,11 +6,17 @@ import Feed from './Components/Feed.jsx'
 
 function App() {
 
+  const comments= ["Nuevo seguidor", "Yo literal", "primer comentario", "Una vez me paso", "Sófocles tenía razón", "Revivan la grase :v"];
+
   //Math.floor(Math.random() * 11) --> Entre 0 y 1
+
+  const GoHome = ()=>{
+    
+  }
 
   return (
     <>
-      <Header />
+      <Header GoHome={GoHome}/>
       <main>
         <section className="LeftBar">
           <Account />
