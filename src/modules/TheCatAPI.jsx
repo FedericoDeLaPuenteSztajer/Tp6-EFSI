@@ -1,10 +1,10 @@
 import axios from 'axios';
-//API page: https://www.omdbapi.com/
-//API key= "live_TKL5g40x6zhZ667a8J6wO5cvNbbgC1M7SGrjXogZs7H0TraV14TKD6VK5IwBKn7s"
-//Example: https://www.omdbapi.com/?apikey=21273b29&s=Toy+Story => devuelve los resultados similares
+//API page: https://thecatapi.com/es
+//API key= "live_TKL5g40x6zhZ667a8J6wO5cvNbbgC1M7SGrjXogZs7H0TraV14TKD6VK5IwBKn7s" => almost unnecesary (For only getting ten images)
+//Example: https://api.thecatapi.com/v1/images/search?limit=10 => returns 10 random images
 
-const api = axios.create({
-    baseURL: 'https://www.omdbapi.com'
+const catApi = axios.create({
+    baseURL: 'https://api.thecatapi.com/v1/images/search'
 })
 
-export default api;
+export default catApi;

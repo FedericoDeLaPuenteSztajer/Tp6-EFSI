@@ -7,7 +7,7 @@ function SmallPost(props){
             <img src={props.postImg}/>
             <div>
                 <img src={props.accountImg}/>
-                <p>{props.accountName}</p>
+                <p>@{props.accountName}</p>
             </div>
         </>
     )
