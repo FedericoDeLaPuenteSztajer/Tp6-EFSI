@@ -13,12 +13,15 @@ function App() {
 
   //Random entre 0 y 10 => Math.floor(Math.random() * 11)
 
-  let Account={}
+  let account={}
   const Login = ()=>{
-    Account["name"]= Math.floor(Math.random() * (accountNames.length +1))
+    account["name"]= Math.floor(Math.random() * (accountNames.length +1))
     
     catApi.get("")
-    
+    .then((response)=>{
+      account["img"]
+    })
+
   }
 
   const GoHome = ()=>{
