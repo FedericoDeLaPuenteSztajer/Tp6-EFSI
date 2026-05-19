@@ -18,7 +18,7 @@ function BigPost(props) {
             </ul>
 
             <div>
-                <p>{props.comment}</p>
+                <p>{postData.comment}</p>
             </div>
 
         </>
