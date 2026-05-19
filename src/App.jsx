@@ -30,19 +30,19 @@ function App() {
 
   /** 
   const Login = () => {
-  userAccount["name"] = Math.floor(Math.random() * (accountNames.length + 1))
-  userAccount["desc"] = Math.floor(Math.random() * (comments.length + 1))
-  userAccount["cantPosts"] = Math.floor(Math.random() * (1, 251))
-  userAccount["cantFollowers"] = Math.floor(Math.random() * (1, 1501))
-  userAccount["cantFollows"] = Math.floor(Math.random() * (1, 21))
+    userAccount["name"] = Math.floor(Math.random() * (accountNames.length + 1))
+    userAccount["desc"] = Math.floor(Math.random() * (comments.length + 1))
+    userAccount["cantPosts"] = Math.floor(Math.random() * (1, 251))
+    userAccount["cantFollowers"] = Math.floor(Math.random() * (1, 1501))
+    userAccount["cantFollows"] = Math.floor(Math.random() * (1, 21))
 
-  catApi.get("?limit=2")
-    .then((response) => {
-      userAccount["img"] = response.data[0].url
-      userAccount["firstPostImg"] = response.data[1].url
-    })
-}
-    */
+    catApi.get("?limit=2")
+      .then((response) => {
+        userAccount["img"] = response.data[0].url
+        userAccount["firstPostImg"] = response.data[1].url
+      })
+  }
+  */
 
   const GoHome = () => {
 
