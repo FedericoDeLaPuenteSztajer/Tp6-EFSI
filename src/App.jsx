@@ -15,19 +15,20 @@ function App() {
   const [userAccount, setUserAccount] = useEffect({})
 
   //Harcodeado
-  const comments = ["Nuevo seguidor", "Yo literal", "primer comentario", "Le paso a mi tio", "Sófocles tenía razón", "Revivan la grasa :v"];
+  const comments = ["Nuevo seguidor", "Yo literal", "primer comentario", "Le paso a mi tio", "Sófocles tenía razón", "Revivan la grasa :v", "Borra la cuenta"];
   const accountNames = ["AinzOoalGown", "Albedo", "ShalltearBlodfallen", "MareBelloFiore", "AuraBelloFiore", "Cockytus", "Demiurge", "PandorasActor"]
+  const descritions = ["busco amigos", "rayo macuin", "Primer post!", "Borraré la cuenta", "Hola soy Sófocles", "G de perro"]
   //
 
   const BuscarUsuario = () => {
     const acc = {}
-    acc["name"] = accountNames[Math.floor(Math.random() * (accountNames.length + 1))]
-    acc["desc"] = comments[Math.floor(Math.random() * (comments.length + 1))]
-    acc["cantPosts"] = Math.floor(Math.random() * (1, 251))
-    acc["cantFollowers"] = Math.floor(Math.random() * (1, 1501))
-    acc["cantFollows"] = Math.floor(Math.random() * (1, 21))
     catApi.get("&limit=2")
       .then((response) => {
+        acc["name"] = accountNames[Math.floor(Math.random() * (accountNames.length + 1))]
+        acc["desc"] = descritions[Math.floor(Math.random() * (descritions.length + 1))]
+        acc["cantPosts"] = Math.floor(Math.random() * (1, 251))
+        acc["cantFollowers"] = Math.floor(Math.random() * (1, 1501))
+        acc["cantFollows"] = Math.floor(Math.random() * (1, 21))
         acc["img"] = response.data[0].url
         acc["firstPostImg"] = response.data[1].url
       })
@@ -45,7 +46,22 @@ function App() {
   }
 
   const ViewPost = (postImg, accountImg, accountName) => {
+    const postData = {}
+    postData["postImg"] = postImg
+    postData["accountImg"] = accountImg
+    postData["accountName"] = accountName
+    postData["desc"] = descritions[Math.floor(Math.random() * (descritions.length + 1))]
+    postData["likes"] = postImg
+    postData["date"] = new Date(2026, 5, 18) //Harcodeado
+    postData["comment"] = comments[Math.floor(Math.random() * (comments.length + 1))]
 
+    setViewingPost(postData);
+
+    const acc = BuscarUsuario()
+    acc["name"] = accountName
+    acc["img"] = accountImg
+
+    setActualAccount(acc);
   }
 
   const GenerateFeed = () => {
@@ -81,7 +97,7 @@ function App() {
 
         <section className="RightBar">
           {viewingPost == null && <Feed postsData={feedPosts} ViewPost={ViewPost} />}
-          {/**viewingPost != null && <BigPost postData={viewingPost} comment={"-!-"} />*/}
+          {viewingPost != null && <BigPost postData={viewingPost} comment={"-!-"} />}
         </section>
       </main>
     </>
