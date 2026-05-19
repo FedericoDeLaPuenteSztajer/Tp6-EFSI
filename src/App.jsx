@@ -12,25 +12,31 @@ function App() {
   const [actualAccount, setActualAccount] = useEffect({})
   const [viewingPost, setViewingPost] = useEffect(null)
   const [feedPosts, setFeedPosts] = useEffect([])
+  const [userAccount, setUserAccount] = useEffect({})
 
   //Harcodeado
   const comments = ["Nuevo seguidor", "Yo literal", "primer comentario", "Le paso a mi tio", "Sófocles tenía razón", "Revivan la grasa :v"];
   const accountNames = ["AinzOoalGown", "Albedo", "ShalltearBlodfallen", "MareBelloFiore", "AuraBelloFiore", "Cockytus", "Demiurge", "PandorasActor"]
-  let userAccount = {}
-
-  userAccount["name"] = accountNames[Math.floor(Math.random() * (accountNames.length + 1))]
-  userAccount["desc"] = comments[Math.floor(Math.random() * (comments.length + 1))]
-  userAccount["cantPosts"] = Math.floor(Math.random() * (1, 251))
-  userAccount["cantFollowers"] = Math.floor(Math.random() * (1, 1501))
-  userAccount["cantFollows"] = Math.floor(Math.random() * (1, 21))
-  catApi.get("&limit=2")
-    .then((response) => {
-      userAccount["img"] = response.data[0].url
-      userAccount["firstPostImg"] = response.data[1].url
-    })
-
-  GoHome()
   //
+
+  const BuscarUsuario = () => {
+    const acc = {}
+    acc["name"] = accountNames[Math.floor(Math.random() * (accountNames.length + 1))]
+    acc["desc"] = comments[Math.floor(Math.random() * (comments.length + 1))]
+    acc["cantPosts"] = Math.floor(Math.random() * (1, 251))
+    acc["cantFollowers"] = Math.floor(Math.random() * (1, 1501))
+    acc["cantFollows"] = Math.floor(Math.random() * (1, 21))
+    catApi.get("&limit=2")
+      .then((response) => {
+        acc["img"] = response.data[0].url
+        acc["firstPostImg"] = response.data[1].url
+      })
+
+    return acc;
+  }
+
+  // Usuario harcodeado
+  setUserAccount(BuscarUsuario())
 
   const GoHome = () => {
     setViewingPost(null)
@@ -38,22 +44,22 @@ function App() {
     setActualAccount(userAccount);
   }
 
-  const ViewPost = () => {
+  const ViewPost = (postImg, accountImg, accountName) => {
 
   }
 
   const GenerateFeed = () => {
     catApi.get("&limit=20")
       .then((response) => {
-        let i=0;
+        let i = 0;
         const postList = response.data.map(d => {
-          const post={}
+          const post = {}
           if (i < 10) {
             post["postImg"] = d.url
-          }else if (i < 20) {
+          } else if (i < 20) {
             post["accountImg"] = d.url
           }
-          post["accountName"]= accountNames[Math.floor(Math.random() * (accountNames.length + 1))]
+          post["accountName"] = accountNames[Math.floor(Math.random() * (accountNames.length + 1))]
           i++;
 
           return post;
@@ -63,23 +69,7 @@ function App() {
       })
   }
 
-
-
-  /** 
-  const Login = () => {
-    userAccount["name"] = Math.floor(Math.random() * (accountNames.length + 1))
-    userAccount["desc"] = Math.floor(Math.random() * (comments.length + 1))
-    userAccount["cantPosts"] = Math.floor(Math.random() * (1, 251))
-    userAccount["cantFollowers"] = Math.floor(Math.random() * (1, 1501))
-    userAccount["cantFollows"] = Math.floor(Math.random() * (1, 21))
-
-    catApi.get("?limit=2")
-      .then((response) => {
-        userAccount["img"] = response.data[0].url
-        userAccount["firstPostImg"] = response.data[1].url
-      })
-  }
-  */
+  GoHome()
 
   return (
     <>
@@ -91,7 +81,7 @@ function App() {
 
         <section className="RightBar">
           {viewingPost == null && <Feed postsData={feedPosts} ViewPost={ViewPost} />}
-          {viewingPost != null && <BigPost postData={viewingPost} comment={"-!-"} />}
+          {/**viewingPost != null && <BigPost postData={viewingPost} comment={"-!-"} />*/}
         </section>
       </main>
     </>
