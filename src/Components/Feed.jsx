@@ -6,11 +6,13 @@ function Feed(props){
 
     const postsData= props.postsData;
 
+    console.log(postsData);
+
     return(
         <>
-            {(postsData).forEach(data => {
+            {(postsData).map(data => (
                 <SmallPost onClick={()=>props.ViewPost(data.postImg, data.accountImg, data.accountName)} postImg={data.postImg} accountImg={data.accountImg} accountName={data.accountName}/>
-            })}
+            ))}
         </>
     )
 }
