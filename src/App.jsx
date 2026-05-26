@@ -88,6 +88,10 @@ function App() {
 
   return (
     <>
+      <h1>Funca</h1>
+
+      {/** */}
+
       <Header GoHome={GoHome} />
 
       {userAccount != null &&
@@ -107,6 +111,8 @@ function App() {
       {userAccount == null &&
         <main><button onClick={() => Login()} /></main>
       }
+
+      
 
     </>
   )

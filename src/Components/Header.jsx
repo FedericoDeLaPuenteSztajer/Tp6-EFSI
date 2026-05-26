@@ -1,14 +1,16 @@
 //
 
-function Header(props){
+function Header(props) {
 
     //
 
-    return(
+    return (
         <>
+            
             <button onClick={()=>props.GoHome()}>Ya!gram</button>
-            <input>Buscar</input>
+            <input placeholder="Buscar"></input>
             <button>Nuevo Post</button>
+        
         </>
     )
 }
