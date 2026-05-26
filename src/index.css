@@ -24,11 +24,30 @@ header {
 
 .LeftBar {
     width: 30%;
+    border-right: 1px solid black;
+}
+
+.Account{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.Account h2{
+    font-size: 250%;
+    margin-bottom: 2.5%;
+    text-decoration: underline;
+}
+
+.Account ul{
+    margin-left: 0%;
+    margin-right: 0%;
+    padding: 0%;
 }
 
 .RightBar {
     width: 70%;
-    padding-right: 3.5%;
+    padding-right: 1.5%;
     padding-left: 0.5%;
 
     display: grid;
@@ -37,8 +56,13 @@ header {
     gap: 0% 1%;
 }
 
-#miniPostImg {
+.RightBar #miniPostImg {
     width: 100%;
+    height: 250px;
+}
+
+.LeftBar #miniPostImg {
+    width: 75%;
     height: 250px;
 }
 
@@ -48,11 +72,13 @@ header {
 }
 
 #accImg {
-    width: 50%;
-    height: auto;
+    width: 250px;
+    height: 250px;
+    border-radius: 100%;
+    
 }
 
-#miniAccImg {
+.RightBar #miniAccImg {
     width: 15%;
     border-radius: 100%;
     height: auto;
@@ -60,9 +86,20 @@ header {
     margin-right: 2.5%;
 }
 
-.smallPost div{
+.LeftBar #miniAccImg {
+    width: 10%;
+    border-radius: 100%;
+    height: auto;
+
+    margin-right: 2.5%;
+}
+
+.SmallPost div{
     margin:0%;
     display: flex;
+}
 
-    
+.LeftBar .SmallPost{
+    display: flex;
+    flex-direction: column;
 }

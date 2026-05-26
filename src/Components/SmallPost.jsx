@@ -3,7 +3,7 @@
 function SmallPost(props){
 
     return(
-        <div className="smallPost">
+        <div className="SmallPost">
             <img src={props.postImg} id="miniPostImg"/>
             <div>
                 <img src={props.accountImg} id="miniAccImg"/>

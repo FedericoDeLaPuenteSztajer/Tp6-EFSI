@@ -79,7 +79,7 @@ function App() {
   }
 
   const Login = async () => {
-    setUserAccount(await BuscarUsuario);
+    setUserAccount(await BuscarUsuario());
     GoHome();
   }
 
@@ -91,7 +91,7 @@ function App() {
 
       {userAccount != null && <main>
         <section className="LeftBar">
-          <Account Account={actualAccount} />
+          <Account Account={actualAccount} userAccount={userAccount}/>
         </section>
 
 

@@ -7,10 +7,12 @@ function Account(props) {
     return (
          <>
             {account == null && <p>Cargando...</p>}
-            {account != null &&<div>
+            {account != null &&<div className='Account'>
                 <h2>{account.name}</h2>
                 <img src={account.img} id='accImg' />
                 <p>{account.desc}</p>
+
+                {props.userAccount==account && <button>Editar</button>} 
 
                 <ul>
                     <li>Cantidad de Publicaciones: {account.cantPosts}</li>
@@ -20,8 +22,6 @@ function Account(props) {
 
                 {/** Simulador de posts */}
                 <SmallPost postImg={account.firstPostImg} accountImg={account.img} accountName={account.name} />
-
-                {props.actualAccount && <button>Editar</button>} 
             </div>}
         </>
     )
