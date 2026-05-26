@@ -6,8 +6,8 @@ function BigPost(props) {
 
     return (
         <>
-            <img src={postData.postImg} />
-            <img src={postData.accountImg}/>
+            <img src={postData.postImg} id="postImg"/>
+            <img src={postData.accountImg} id="miniAccImg"/>
             <h2>@{postData.accountName}</h2>
             <p>{postData.desc}</p>
 

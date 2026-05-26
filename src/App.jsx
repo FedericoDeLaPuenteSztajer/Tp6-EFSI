@@ -36,22 +36,19 @@ function App() {
   }
 
   const GenerateFeed = async () => {
-
     const response = await catApi.get("&limit=20");
+    const listImg= response.data
 
-    let i = 0;
-    const postList = response.data.map(d => {
+    const postList = []
+
+    for(let i=0; i<10; i++){
       const post = {}
-      if (i < 10) {
-        post["postImg"] = d.url
-      } else if (i < 20) {
-        post["accountImg"] = d.url
-      }
+      post["postImg"] = listImg[i].url
+      post["accountImg"] = listImg[i+10].url
       post["accountName"] = ACCOUNT_NAMES[Math.floor(Math.random() * (ACCOUNT_NAMES.length))]
-      i++;
 
-      return post;
-    })
+      postList.push(post);
+    }
 
     setFeedPosts(postList);
   }
@@ -88,25 +85,25 @@ function App() {
 
   return (
     <>
-      <h1>Funca</h1>
+      {userAccount != null && <header>
+        <Header GoHome={GoHome} />
+      </header>}
 
-      {userAccount != null && <Header GoHome={GoHome} />}
-
-        {userAccount != null && <main>
-          <section className="LeftBar">
-            <Account Account={actualAccount} />
-          </section>
+      {userAccount != null && <main>
+        <section className="LeftBar">
+          <Account Account={actualAccount} />
+        </section>
 
 
-          <section className="RightBar">
-            {viewingPost == null && <Feed postsData={feedPosts} ViewPost={ViewPost} />}
-            {viewingPost != null && <BigPost postData={viewingPost} />}
-          </section>
+        <section className="RightBar">
+          {viewingPost == null && <Feed postsData={feedPosts} ViewPost={ViewPost} />}
+          {viewingPost != null && <BigPost postData={viewingPost} />}
+        </section>
 
-        </main>}
+      </main>}
 
       {userAccount == null &&
-        <main><button onClick={() => Login()} >Iniciar Sesion</button></main>
+        <main className='login'><button onClick={() => Login()} >Iniciar Sesion</button></main>
       }
     </>
   )

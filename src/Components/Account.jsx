@@ -9,7 +9,7 @@ function Account(props) {
             {account == null && <p>Cargando...</p>}
             {account != null &&<div>
                 <h2>{account.name}</h2>
-                <img src={account.img} />
+                <img src={account.img} id='accImg' />
                 <p>{account.desc}</p>
 
                 <ul>

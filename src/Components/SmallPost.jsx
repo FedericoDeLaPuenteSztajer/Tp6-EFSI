@@ -3,13 +3,13 @@
 function SmallPost(props){
 
     return(
-        <>
-            <img src={props.postImg}/>
+        <div className="smallPost">
+            <img src={props.postImg} id="miniPostImg"/>
             <div>
-                <img src={props.accountImg}/>
+                <img src={props.accountImg} id="miniAccImg"/>
                 <p>@{props.accountName}</p>
             </div>
-        </>
+        </div>
     )
 }
 
