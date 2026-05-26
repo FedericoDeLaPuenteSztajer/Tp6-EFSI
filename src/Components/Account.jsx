@@ -5,8 +5,9 @@ function Account(props) {
     const account = props.Account;
 
     return (
-        <>
-            <div>
+         <>
+            {account == null && <p>Cargando...</p>}
+            {account != null &&<div>
                 <h2>{account.name}</h2>
                 <img src={account.img} />
                 <p>{account.desc}</p>
@@ -21,7 +22,7 @@ function Account(props) {
                 <SmallPost postImg={account.firstPostImg} accountImg={account.img} accountName={account.name} />
 
                 {props.actualAccount && <button>Editar</button>} 
-            </div>
+            </div>}
         </>
     )
 }

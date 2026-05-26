@@ -24,8 +24,8 @@ function App() {
     const acc = {}
     const response = await catApi.get("&limit=2");
 
-    acc["name"] = ACCOUNT_NAMES[Math.floor(Math.random() * (ACCOUNT_NAMES.length + 1)) - 1]
-    acc["desc"] = DESCRIPTIONS[Math.floor(Math.random() * (DESCRIPTIONS.length + 1)) - 1]
+    acc["name"] = ACCOUNT_NAMES[Math.floor(Math.random() * (ACCOUNT_NAMES.length))]
+    acc["desc"] = DESCRIPTIONS[Math.floor(Math.random() * (DESCRIPTIONS.length))]
     acc["cantPosts"] = Math.floor(Math.random() * (251))
     acc["cantFollowers"] = Math.floor(Math.random() * (1501))
     acc["cantFollows"] = Math.floor(Math.random() * (21))
@@ -47,7 +47,7 @@ function App() {
       } else if (i < 20) {
         post["accountImg"] = d.url
       }
-      post["accountName"] = ACCOUNT_NAMES[Math.floor(Math.random() * (ACCOUNT_NAMES.length + 1)) - 1]
+      post["accountName"] = ACCOUNT_NAMES[Math.floor(Math.random() * (ACCOUNT_NAMES.length))]
       i++;
 
       return post;
@@ -67,10 +67,10 @@ function App() {
     postData["postImg"] = postImg
     postData["accountImg"] = accountImg
     postData["accountName"] = accountName
-    postData["desc"] = DESCRIPTIONS[Math.floor(Math.random() * (DESCRIPTIONS.length + 1)) - 1]
+    postData["desc"] = DESCRIPTIONS[Math.floor(Math.random() * (DESCRIPTIONS.length))]
     postData["likes"] = Math.floor(Math.random() * (501))
     postData["date"] = new Date(2026, 5, 18) //Harcodeado
-    postData["comment"] = COMMENTS[Math.floor(Math.random() * (COMMENTS.length + 1)) - 1]
+    postData["comment"] = COMMENTS[Math.floor(Math.random() * (COMMENTS.length))]
 
     setViewingPost(postData);
 
@@ -81,8 +81,8 @@ function App() {
     setActualAccount(acc);
   }
 
-  const Login = () => {
-    setUserAccount(BuscarUsuario);
+  const Login = async () => {
+    setUserAccount(await BuscarUsuario);
     GoHome();
   }
 
@@ -90,12 +90,9 @@ function App() {
     <>
       <h1>Funca</h1>
 
-      {/** */}
+      {userAccount != null && <Header GoHome={GoHome} />}
 
-      <Header GoHome={GoHome} />
-
-      {userAccount != null &&
-        <main>
+        {userAccount != null && <main>
           <section className="LeftBar">
             <Account Account={actualAccount} />
           </section>
@@ -106,14 +103,11 @@ function App() {
             {viewingPost != null && <BigPost postData={viewingPost} />}
           </section>
 
-        </main>
-      }
+        </main>}
+
       {userAccount == null &&
-        <main><button onClick={() => Login()} /></main>
+        <main><button onClick={() => Login()} >Iniciar Sesion</button></main>
       }
-
-      
-
     </>
   )
 }

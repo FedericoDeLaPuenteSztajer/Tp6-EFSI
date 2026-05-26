@@ -6,8 +6,6 @@ function Feed(props){
 
     const postsData= props.postsData;
 
-    console.log(postsData);
-
     return(
         <>
             {(postsData).map(data => (
