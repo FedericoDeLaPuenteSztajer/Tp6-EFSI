@@ -1,19 +1,19 @@
-//
-
 function BigPost(props) {
 
     const postData = props.postData
 
     return (
         <>
-            <img src={postData.postImg} id="postImg"/>
-            <img src={postData.accountImg} id="miniAccImg"/>
-            <h2>@{postData.accountName}</h2>
+            <img src={postData.postImg} id="postImg" />
+            <div>
+                <img src={postData.accountImg} id="miniAccImg" />
+                <h2>@{postData.accountName}</h2>
+            </div>
             <p>{postData.desc}</p>
 
             <ul>
                 <li>Likes: {postData.likes}</li>
-                <li>Fecha: {postData.date}</li>
+                <li>Fecha: {postData.date.toString()}</li>
                 <button>Comentar</button>
             </ul>
 

@@ -3,7 +3,7 @@
 function SmallPost(props){
 
     return(
-        <div className="SmallPost">
+        <div className="SmallPost" onClick={()=>props.ViewPost(props.postImg, props.accountImg, props.accountName)}>
             <img src={props.postImg} id="miniPostImg"/>
             <div>
                 <img src={props.accountImg} id="miniAccImg"/>

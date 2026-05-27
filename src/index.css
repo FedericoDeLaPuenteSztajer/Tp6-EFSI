@@ -62,13 +62,13 @@ header {
 }
 
 .LeftBar #miniPostImg {
-    width: 75%;
-    height: 250px;
+    width: 60%;
+    height: auto;
 }
 
 #postImg{
-    width: 100%;
-    height: auto;
+    width: 75%;
+    height: 500px;
 }
 
 #accImg {
@@ -102,6 +102,13 @@ header {
 .LeftBar .SmallPost{
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
-f
+.LeftBar .SmallPost div{
+    width: 75%;
+}
+
+.SectionBigPost{
+    width: 40%;
+}

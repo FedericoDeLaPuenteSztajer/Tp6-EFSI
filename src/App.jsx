@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import './App.css'
 import Header from './Components/Header.jsx'
 import Account from './Components/Account.jsx'
 import Feed from './Components/Feed.jsx'
@@ -37,14 +36,14 @@ function App() {
 
   const GenerateFeed = async () => {
     const response = await catApi.get("&limit=20");
-    const listImg= response.data
+    const listImg = response.data
 
     const postList = []
 
-    for(let i=0; i<10; i++){
+    for (let i = 0; i < 10; i++) {
       const post = {}
       post["postImg"] = listImg[i].url
-      post["accountImg"] = listImg[i+10].url
+      post["accountImg"] = listImg[i + 10].url
       post["accountName"] = ACCOUNT_NAMES[Math.floor(Math.random() * (ACCOUNT_NAMES.length))]
 
       postList.push(post);
@@ -53,7 +52,7 @@ function App() {
     setFeedPosts(postList);
   }
 
-  const GoHome = () => {
+  const GoHome = async () => {
     setViewingPost(null);
     GenerateFeed();
     setActualAccount(userAccount);
@@ -91,14 +90,17 @@ function App() {
 
       {userAccount != null && <main>
         <section className="LeftBar">
-          <Account Account={actualAccount} userAccount={userAccount}/>
+          <Account Account={actualAccount} userAccount={userAccount} ViewPost={ViewPost} />
         </section>
 
 
-        <section className="RightBar">
-          {viewingPost == null && <Feed postsData={feedPosts} ViewPost={ViewPost} />}
-          {viewingPost != null && <BigPost postData={viewingPost} />}
-        </section>
+        {viewingPost == null &&<section className="RightBar">
+           <Feed postsData={feedPosts} ViewPost={ViewPost} />
+        </section>}
+
+        {viewingPost != null && <section className="SectionBigPost">
+           <BigPost postData={viewingPost} />
+        </section>}
 
       </main>}
 

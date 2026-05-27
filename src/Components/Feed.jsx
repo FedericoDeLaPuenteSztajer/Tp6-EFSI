@@ -9,7 +9,7 @@ function Feed(props){
     return(
         <>
             {(postsData).map(data => (
-                <SmallPost onClick={()=>props.ViewPost(data.postImg, data.accountImg, data.accountName)} postImg={data.postImg} accountImg={data.accountImg} accountName={data.accountName}/>
+                <SmallPost ViewPost={props.ViewPost} postImg={data.postImg} accountImg={data.accountImg} accountName={data.accountName}/>
             ))}
         </>
     )
