@@ -110,5 +110,8 @@ header {
 }
 
 .SectionBigPost{
-    width: 40%;
+    /*width: 40%;*/
+    display: flex;
+    padding: 1%;
+    padding-right: 3%;
 }
