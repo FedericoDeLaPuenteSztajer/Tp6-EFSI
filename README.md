@@ -1,4 +1,5 @@
-**- Cómo organizaron el proyecto**: Dedique un branch dev-js al diseño de componentes y código funcional y luego otro dev-css para el diseño visual (Y manejo de errores que complicaban la visualización).\n
+**- Cómo organizaron el proyecto**: Dedique un branch dev-js al diseño de componentes y código funcional y luego otro dev-css para el diseño visual (Y manejo de errores que complicaban la visualización).
+
 **- Qué componentes crearon**: Account, BigPost, Feed, Header, SmallPost. 
 **- Qué responsabilidad tiene cada componente**: Account (Visualización de la cuenta del usuario o del post que se vea), BigPost (Visualización de post clickeado), Feed (Generación de post pequeños recomendados), Header (Boton de Home (Ya!gram), busqueda no funcional de posts y boton no funcional para crear posts), SmallPost (Post pequeño clickleable). 
 **- Por qué decidieron componentizar de esa manera**: Porque me parecio una forma responsable de distribuir las tareas --> Una feed con muchos SmallPost que se pueden clickear y llaman a un useEffect pasado desde app que abre un BigPost con su info / Una barra lateral izquierda con la información de la cuenta que cambia en relación al post que se ve o muestra al usuario de la cuenta. / Un header mayormente visual pero que permite reiniciar el feed así como volver a ver la cuenta del usuario.
