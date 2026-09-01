@@ -1,3 +1,5 @@
+# Ya!gram
+
 **- Cómo organizaron el proyecto**: Dedique un branch dev-js al diseño de componentes y código funcional y luego otro dev-css para el diseño visual (Y manejo de errores que complicaban la visualización).
 
 **- Qué componentes crearon**: Account, BigPost, Feed, Header, SmallPost. 
